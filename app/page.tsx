@@ -106,7 +106,7 @@ export default function Home() {
         <div className="section-number">02 / SOBRE</div>
         <div className="about-heading"><p className="kicker">Perfil híbrido</p><h2>Não fico preso<br />em uma <em>caixinha.</em></h2></div>
         <div className="about-body">
-          <p className="lead">Minha base nasceu no suporte e na infraestrutura. Foi ali que aprendi que tecnologia boa não é a mais complicada; é a que resolve.</p>
+          <p className="lead">Minha base nasceu no suporte e na infraestrutura. Foi ali que aprendi que tecnologia boa não é a mais complicada, mas a que resolve.</p>
           <p>Hoje combino essa experiência com formação em desenvolvimento Full Stack, arquitetura cloud, governança e análise de dados. Entendo o usuário, a operação e o código: três pontos de vista que me ajudam a criar soluções completas.</p>
           <p>Como profissional PCD, valorizo ambientes em que diversidade, colaboração e capacidade falem mais alto. Busco desafios onde eu possa transformar processos, dados e ideias em resultado.</p>
           <div className="principles">
