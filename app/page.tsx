@@ -61,7 +61,7 @@ export default function Home() {
       <div className="ambient" aria-hidden="true" />
 
       <header className="nav-wrap">
-        <a className="brand" href="#inicio" aria-label="Ir para o início"><span>F</span>F/26</a>
+        <a className="brand" href="#inicio" aria-label="Ir para o início"><span>F</span>Filipe França</a>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Abrir navegação">{menuOpen ? "Fechar" : "Menu"}</button>
         <nav className={menuOpen ? "open" : ""}>
           {[["Sobre", "sobre"], ["Experiência", "experiencia"], ["Formação", "formacao"], ["Contato", "contato"]].map(([label, id]) => (
@@ -146,7 +146,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer><a className="brand" href="#inicio"><span>F</span>F/26</a><p>Filipe França de Oliveira · Brasília, DF</p><p>Desenvolvido com intenção, não com template.</p></footer>
+      <footer><a className="brand" href="#inicio"><span>F</span>Filipe França</a><p>Filipe França de Oliveira · Brasília, DF</p><p>Desenvolvido com intenção, não com template.</p></footer>
     </main>
   );
 }
