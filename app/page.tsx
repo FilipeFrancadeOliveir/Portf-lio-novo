@@ -76,7 +76,7 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow"><span className="status-dot" /> Brasília, DF · disponível para novos desafios</p>
           <h1>Entre sistemas<br />e pessoas, eu<br /><em>faço acontecer.</em></h1>
-          <p className="hero-intro">Sou <strong>Filipe França</strong>, profissional de tecnologia com visão de negócio. Uno desenvolvimento Full Stack, cloud, infraestrutura e dados para construir soluções que funcionam no mundo real.</p>
+          <p className="hero-intro">Sou <strong>Filipe França</strong>, um desenvolvedor com experiência Full Stack e visão de negócio. Utilizo conhecimentos em cloud, infraestrutura e dados para construir soluções que funcionam no mundo real.</p>
           <div className="hero-actions">
             <a className="button primary" href="#experiencia">Explorar trajetória <span>↓</span></a>
             <a className="button ghost" href={LINKEDIN} target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
@@ -106,7 +106,7 @@ export default function Home() {
         <div className="section-number">02 / SOBRE</div>
         <div className="about-heading"><p className="kicker">Perfil híbrido</p><h2>Não fico preso<br />em uma <em>caixinha.</em></h2></div>
         <div className="about-body">
-          <p className="lead">Minha base nasceu no suporte e na infraestrutura. Foi ali que aprendi que tecnologia boa não é a mais complicada — é a que resolve.</p>
+          <p className="lead">Minha base nasceu no suporte e na infraestrutura. Foi ali que aprendi que tecnologia boa não é a mais complicada; é a que resolve.</p>
           <p>Hoje combino essa experiência com formação em desenvolvimento Full Stack, arquitetura cloud, governança e análise de dados. Entendo o usuário, a operação e o código: três pontos de vista que me ajudam a criar soluções completas.</p>
           <p>Como profissional PCD, valorizo ambientes em que diversidade, colaboração e capacidade falem mais alto. Busco desafios onde eu possa transformar processos, dados e ideias em resultado.</p>
           <div className="principles">
@@ -132,7 +132,7 @@ export default function Home() {
       </section>
 
       <section className="experience section" id="experiencia">
-        <div className="experience-head"><div><div className="section-number">04 / TRAJETÓRIA</div><h2>Experiência que<br /><em>conecta pontos.</em></h2></div><p>Uma carreira construída entre tecnologia, atendimento e operação — sempre com a mesma missão: entender o problema e entregar a solução.</p></div>
+        <div className="experience-head"><div><div className="section-number">04 / TRAJETÓRIA</div><h2>Experiência que<br /><em>conecta pontos.</em></h2></div><p>Uma carreira construída entre tecnologia, atendimento e operação, sempre com a mesma missão: entender o problema e entregar a solução.</p></div>
         <div className="timeline">
           {experiences.map((item, i) => <article key={item.role} className="timeline-item"><div className="timeline-marker">{String(i + 1).padStart(2, "0")}</div><div className="timeline-date">{item.period}</div><div className="timeline-content"><h3>{item.role}</h3><h4>{item.company}</h4><p>{item.text}</p><div className="tags">{item.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div></article>)}
         </div>
