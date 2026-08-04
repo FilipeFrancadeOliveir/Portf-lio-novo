@@ -33,10 +33,10 @@ const experiences = [
 ];
 
 const education = [
-  ["MBA", "Governança Corporativa, Digital e de Dados", "Gran Faculdade · em andamento"],
-  ["Pós", "Arquitetura e Projetos de Cloud Computing", "Gran Faculdade · 2025"],
-  ["Pós", "Desenvolvimento Full Stack e Cloud Computing", "Gran Faculdade · 2025"],
-  ["Graduação", "Análise e Desenvolvimento de Sistemas", "Universidade Cruzeiro do Sul · 2024"],
+  ["MBA", "Governança Corporativa, Digital e de Dados", "Gran Faculdade · concluído"],
+  ["Pós", "Arquitetura e Projetos de Cloud Computing", "Gran Faculdade · concluído em 2025"],
+  ["Pós", "Desenvolvimento Full Stack e Cloud Computing", "Gran Faculdade · concluído em 2025"],
+  ["Graduação", "Análise e Desenvolvimento de Sistemas", "Universidade Cruzeiro do Sul · concluído em 2024"],
 ];
 
 export default function Home() {
