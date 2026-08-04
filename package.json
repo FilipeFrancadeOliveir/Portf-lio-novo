@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "eslint . --ignore-pattern out --ignore-pattern .next",
-    "deploy": "wrangler pages deploy"
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
     "next": "16.2.6",

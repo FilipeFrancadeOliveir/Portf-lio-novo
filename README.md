@@ -28,4 +28,5 @@ Ao importar este repositório, use:
 - Build output directory: `out`
 - Root directory: `/`
 
-O arquivo `wrangler.jsonc` também define `out` como a saída oficial do Pages.
+O arquivo `wrangler.jsonc` define `out` como a pasta de assets estáticos. Assim,
+o projeto funciona tanto na importação do painel quanto com `wrangler deploy`.
