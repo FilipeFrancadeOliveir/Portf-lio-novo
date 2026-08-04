@@ -83,7 +83,7 @@ export default function Home() {
         </div>
         <div className="hero-visual" aria-label="Retrato profissional de Filipe França">
           <div className="orbit orbit-one" /><div className="orbit orbit-two" />
-          <div className="portrait-frame"><img src="/filipe-franca.png" alt="Filipe França de Oliveira" /></div>
+          <div className="portrait-frame"><img src="/filipe-franca.jpg" alt="Filipe França de Oliveira" /></div>
           <div className="floating-card card-code"><span>ATUAÇÃO</span><strong>Tech × Business</strong></div>
           <div className="floating-card card-years"><strong>7+</strong><span>anos resolvendo<br />problemas reais</span></div>
           <div className="visual-label">DESENVOLVIMENTO · CLOUD · DADOS</div>
