@@ -18,3 +18,14 @@ Desenvolvimento Full Stack, cloud computing, infraestrutura, dados e gestão de 
 npm install
 npm run dev
 ```
+
+## Publicação no Cloudflare Pages
+
+Ao importar este repositório, use:
+
+- Framework preset: **Next.js (Static HTML Export)**
+- Build command: `npm run build`
+- Build output directory: `out`
+- Root directory: `/`
+
+O arquivo `wrangler.jsonc` também define `out` como a saída oficial do Pages.

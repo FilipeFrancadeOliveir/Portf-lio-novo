@@ -1,11 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const WHATSAPP = "https://wa.me/5561992087470?text=Ol%C3%A1%20Filipe!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade.";
 const LINKEDIN = "https://www.linkedin.com/in/filipe-fran%C3%A7a-de-oliveira";
 const EMAIL = "mailto:filipi95527646@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio";
-const BASE_PATH = "/Portf-lio-novo";
 
 const stack = ["JavaScript", "TypeScript", "React", "Next.js", "Python", "SQL", "Cloud", "Power BI", "Git", "Infraestrutura"];
 
@@ -84,7 +84,15 @@ export default function Home() {
         </div>
         <div className="hero-visual" aria-label="Retrato profissional de Filipe França">
           <div className="orbit orbit-one" /><div className="orbit orbit-two" />
-          <div className="portrait-frame"><img src={`${BASE_PATH}/filipe-franca.jpg`} alt="Filipe França de Oliveira" /></div>
+          <div className="portrait-frame">
+            <Image
+              src="/filipe-franca.jpg"
+              alt="Filipe França de Oliveira"
+              width={400}
+              height={400}
+              priority
+            />
+          </div>
           <div className="floating-card card-code"><span>ATUAÇÃO</span><strong>Tech × Business</strong></div>
           <div className="floating-card card-years"><strong>7+</strong><span>anos resolvendo<br />problemas reais</span></div>
           <div className="visual-label">DESENVOLVIMENTO · CLOUD · DADOS</div>
