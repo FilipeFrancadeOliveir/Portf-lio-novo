@@ -106,7 +106,7 @@ export default function Home() {
 
       <section className="about section" id="sobre">
         <div className="section-number">02 / SOBRE</div>
-        <div className="about-heading"><p className="kicker">Perfil híbrido</p><h2>Não fico preso<br />em uma <em>caixinha.</em></h2></div>
+        <div className="about-heading"><p className="kicker">Perfil híbrido</p><h2>Não fico preso<br />em uma <em>caixinha</em></h2></div>
         <div className="about-body">
           <p className="lead">Minha base nasceu no suporte e na infraestrutura. Foi ali que aprendi que tecnologia boa não é a mais complicada, mas a que resolve.</p>
           <p>Hoje combino essa experiência com formação em desenvolvimento Full Stack, arquitetura cloud, governança e análise de dados. Entendo o usuário, a operação e o código: três pontos de vista que me ajudam a criar soluções completas.</p>
@@ -134,7 +134,7 @@ export default function Home() {
       </section>
 
       <section className="experience section" id="experiencia">
-        <div className="experience-head"><div><div className="section-number">04 / TRAJETÓRIA</div><h2>Experiência que<br /><em>conecta pontos.</em></h2></div><p>Uma carreira construída entre tecnologia, atendimento e operação, sempre com a mesma missão: entender o problema e entregar a solução.</p></div>
+        <div className="experience-head"><div><div className="section-number">04 / TRAJETÓRIA</div><h2>Experiência que<br /><em>conecta pontos</em></h2></div><p>Uma carreira construída entre tecnologia, atendimento e operação, sempre com a mesma missão: entender o problema e entregar a solução.</p></div>
         <div className="timeline">
           {experiences.map((item, i) => <article key={item.role} className="timeline-item"><div className="timeline-marker">{String(i + 1).padStart(2, "0")}</div><div className="timeline-date">{item.period}</div><div className="timeline-content"><h3>{item.role}</h3><h4>{item.company}</h4><p>{item.text}</p><div className="tags">{item.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div></article>)}
         </div>
@@ -142,7 +142,7 @@ export default function Home() {
 
       <section className="education section" id="formacao">
         <div className="section-number">05 / FORMAÇÃO</div>
-        <div className="education-layout"><div className="education-title"><p className="kicker">Conhecimento em movimento</p><h2>Estudo para<br /><em>ir além.</em></h2><p>Formação contínua para conectar execução técnica, arquitetura e estratégia.</p></div><div className="education-list">{education.map(([type, course, institution], i) => <article key={course}><span>{String(i + 1).padStart(2, "0")}</span><div><small>{type}</small><h3>{course}</h3><p>{institution}</p></div><i>↗</i></article>)}</div></div>
+        <div className="education-layout"><div className="education-title"><p className="kicker">Conhecimento em movimento</p><h2>Estudo para<br /><em>ir além</em></h2><p>Formação contínua para conectar execução técnica, arquitetura e estratégia.</p></div><div className="education-list">{education.map(([type, course, institution], i) => <article key={course}><span>{String(i + 1).padStart(2, "0")}</span><div><small>{type}</small><h3>{course}</h3><p>{institution}</p></div><i>↗</i></article>)}</div></div>
       </section>
 
       <section className="contact section" id="contato">
