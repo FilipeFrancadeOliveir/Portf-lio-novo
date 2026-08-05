@@ -64,12 +64,14 @@ export default function Home() {
       <header className="nav-wrap">
         <a className="brand" href="#inicio" aria-label="Ir para o início"><span>F</span>Filipe França</a>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Abrir navegação">{menuOpen ? "Fechar" : "Menu"}</button>
-        <nav className={menuOpen ? "open" : ""}>
-          {[["Sobre", "sobre"], ["Experiência", "experiencia"], ["Formação", "formacao"], ["Contato", "contato"]].map(([label, id]) => (
-            <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>
-          ))}
-        </nav>
-        <a className="nav-cta" href={WHATSAPP} target="_blank" rel="noreferrer">Vamos conversar <span>↗</span></a>
+        <div className="nav-actions">
+          <nav className={menuOpen ? "open" : ""}>
+            {[["Sobre", "sobre"], ["Experiência", "experiencia"], ["Formação", "formacao"], ["Contato", "contato"]].map(([label, id]) => (
+              <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>
+            ))}
+          </nav>
+          <a className="nav-cta" href={WHATSAPP} target="_blank" rel="noreferrer">Vamos conversar <span>↗</span></a>
+        </div>
       </header>
 
       <section className="hero" id="inicio">
@@ -146,7 +148,7 @@ export default function Home() {
       <section className="contact section" id="contato">
         <div className="contact-orb" aria-hidden="true" />
         <p className="kicker">Tem um desafio interessante?</p>
-        <h2>Vamos criar algo<br /><em>que marque.</em></h2>
+        <h2>Vamos criar algo<br /><em>que marque</em></h2>
         <p className="contact-copy">Estou aberto a oportunidades em tecnologia, desenvolvimento, dados e projetos que valorizem iniciativa e visão de negócio.</p>
         <div className="contact-links">
           <a href={WHATSAPP} target="_blank" rel="noreferrer"><span>WhatsApp</span><small>Resposta direta</small><i>↗</i></a>
