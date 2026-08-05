@@ -75,7 +75,7 @@ export default function Home() {
       <section className="hero" id="inicio">
         <div className="hero-copy">
           <p className="eyebrow"><span className="status-dot" /> Brasília, DF · disponível para novos desafios</p>
-          <h1>Entre sistemas<br />e pessoas, eu<br /><em>faço acontecer.</em></h1>
+          <h1>Entre sistemas<br />e pessoas, transformo<br /><em>ideias em soluções</em></h1>
           <p className="hero-intro">Sou <strong>Filipe França</strong>, um desenvolvedor com experiência Full Stack e visão de negócio. Utilizo conhecimentos em cloud, infraestrutura e dados para construir soluções que funcionam no mundo real.</p>
           <div className="hero-actions">
             <a className="button primary" href="#experiencia">Explorar trajetória <span>↓</span></a>
