@@ -1,163 +1,37 @@
 "use client";
-
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const WHATSAPP = "https://wa.me/5561992087470?text=Ol%C3%A1%20Filipe!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade.";
-const LINKEDIN = "https://www.linkedin.com/in/filipe-fran%C3%A7a-de-oliveira";
-const EMAIL = "mailto:filipi95527646@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio";
-
-const stack = ["JavaScript", "TypeScript", "React", "Next.js", "Python", "SQL", "Cloud", "Power BI", "Git", "Infraestrutura"];
-
-const experiences = [
-  {
-    period: "2023 — agora",
-    role: "Assistente Administrativo",
-    company: "Centro Corporativo Sicoob · Brasília",
-    text: "Gestão de contratos, despesas e rateios, fornecedores, fluxos financeiros e demandas internas. Transformo rotinas operacionais em processos organizados, indicadores e decisões mais claras.",
-    tags: ["Processos", "Power BI", "Gestão", "Análise de dados"],
-  },
-  {
-    period: "2019 — 2023",
-    role: "Técnico em TI · Suporte N1/N2",
-    company: "Sicoob Confederação",
-    text: "Suporte técnico presencial e remoto, infraestrutura, manutenção e resolução de incidentes. Atuação próxima aos usuários e times técnicos para traduzir problemas em soluções eficientes.",
-    tags: ["Infraestrutura", "Redes", "Troubleshooting", "Experiência do usuário"],
-  },
-  {
-    period: "2019",
-    role: "Assistente de Suporte Técnico",
-    company: "Hospital Daher",
-    text: "Manutenção de equipamentos, redes e sistemas em ambiente crítico, com foco em disponibilidade, atendimento ágil e continuidade da operação.",
-    tags: ["Hardware", "Redes", "Suporte", "Operações"],
-  },
+const WHATSAPP="https://wa.me/5561992087470?text=Ol%C3%A1%20Filipe!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade.";
+const LINKEDIN="https://www.linkedin.com/in/filipe-fran%C3%A7a-de-oliveira";
+const GITHUB="https://github.com/FilipeFrancadeOliveir";
+const EMAIL="mailto:filipi95527646@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio";
+const projects=[
+ {n:"01",kind:"BUSINESS INTELLIGENCE",title:"Gestão de despesas em uma visão",text:"Dashboard executivo para transformar balancetes extensos em indicadores claros, filtros úteis e leitura rápida para a gestão.",tags:["Power BI","Power Query","DAX"],color:"violet"},
+ {n:"02",kind:"DADOS & AUTOMAÇÃO",title:"Impostos sem retrabalho",text:"Estrutura automatizada para cálculo, conferência e geração de relatórios tributários, com regras alinhadas ao sistema corporativo.",tags:["Excel","Qualidade de dados","Automação"],color:"lime"},
+ {n:"03",kind:"ANÁLISE OPERACIONAL",title:"Consumo que vira decisão",text:"Painel de tarifas e consumo de água com histórico, composição tarifária, comparativos e identificação de desvios.",tags:["Power BI","Indicadores","Storytelling"],color:"cyan"},
 ];
-
-const education = [
-  ["MBA", "Governança Corporativa, Digital e de Dados", "Gran Faculdade · concluído"],
-  ["Pós", "Arquitetura e Projetos de Cloud Computing", "Gran Faculdade · concluído em 2025"],
-  ["Pós", "Desenvolvimento Full Stack e Cloud Computing", "Gran Faculdade · concluído em 2025"],
-  ["Graduação", "Análise e Desenvolvimento de Sistemas", "Universidade Cruzeiro do Sul · concluído em 2024"],
+const experiences=[
+ ["2023 — AGORA","Assistente Administrativo","Centro Corporativo Sicoob · Brasília","Gestão de contratos, despesas, rateios, fornecedores e fluxos financeiros. Transformo rotinas operacionais em processos organizados, indicadores e decisões mais claras."],
+ ["2019 — 2023","Técnico de TI · N1/N2","Sicoob Confederação","Suporte, infraestrutura e resolução de incidentes com proximidade dos usuários e visão completa da operação."],
+ ["2019","Assistente de Suporte","Hospital Daher","Manutenção de equipamentos, redes e sistemas em ambiente crítico, com foco em disponibilidade e continuidade."],
 ];
+const education=[["MBA","Governança Corporativa, Digital e de Dados","Concluído"],["PÓS","Arquitetura e Projetos de Cloud Computing","Concluído em 2025"],["PÓS","Desenvolvimento Full Stack e Cloud Computing","Concluído em 2025"],["GRADUAÇÃO","Análise e Desenvolvimento de Sistemas","Concluído em 2024"]];
 
-export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [mouse, setMouse] = useState({ x: 50, y: 30 });
-
-  useEffect(() => {
-    const onScroll = () => {
-      const total = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
-    };
-    const onMove = (event: MouseEvent) => setMouse({ x: (event.clientX / window.innerWidth) * 100, y: (event.clientY / window.innerHeight) * 100 });
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("mousemove", onMove, { passive: true });
-    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("mousemove", onMove); };
-  }, []);
-
-  return (
-    <main style={{ "--mouse-x": `${mouse.x}%`, "--mouse-y": `${mouse.y}%` } as React.CSSProperties}>
-      <div className="scroll-progress" style={{ width: `${progress}%` }} />
-      <div className="ambient" aria-hidden="true" />
-
-      <header className="nav-wrap">
-        <a className="brand" href="#inicio" aria-label="Ir para o início"><span>F</span>Filipe França</a>
-        <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Abrir navegação">{menuOpen ? "Fechar" : "Menu"}</button>
-        <div className="nav-actions">
-          <nav className={menuOpen ? "open" : ""}>
-            {[["Sobre", "sobre"], ["Experiência", "experiencia"], ["Formação", "formacao"], ["Contato", "contato"]].map(([label, id]) => (
-              <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>
-            ))}
-          </nav>
-          <a className="nav-cta" href={WHATSAPP} target="_blank" rel="noreferrer">Vamos conversar <span>↗</span></a>
-        </div>
-      </header>
-
-      <section className="hero" id="inicio">
-        <div className="hero-copy">
-          <p className="eyebrow"><span className="status-dot" /> Brasília, DF · disponível para novos desafios</p>
-          <h1>Entre sistemas<br />e pessoas, transformo<br /><em>ideias em soluções</em></h1>
-          <p className="hero-intro">Sou <strong>Filipe França</strong>, um desenvolvedor com experiência Full Stack e visão de negócio. Utilizo conhecimentos em cloud, infraestrutura e dados para construir soluções que funcionam no mundo real.</p>
-          <div className="hero-actions">
-            <a className="button primary" href="#experiencia">Explorar trajetória <span>↓</span></a>
-            <a className="button ghost" href={LINKEDIN} target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
-          </div>
-        </div>
-        <div className="hero-visual" aria-label="Retrato profissional de Filipe França">
-          <div className="orbit orbit-one" /><div className="orbit orbit-two" />
-          <div className="portrait-frame">
-            <Image
-              src="/filipe-franca.jpg"
-              alt="Filipe França de Oliveira"
-              width={400}
-              height={400}
-              priority
-            />
-          </div>
-          <div className="floating-card card-code"><span>ATUAÇÃO</span><strong>Tech × Business</strong></div>
-          <div className="floating-card card-years"><strong>7+</strong><span>anos resolvendo<br />problemas reais</span></div>
-          <div className="visual-label">DESENVOLVIMENTO · CLOUD · DADOS</div>
-        </div>
-        <div className="hero-index"><span>PORTFÓLIO</span><b>01</b><span>2026</span></div>
-      </section>
-
-      <div className="marquee" aria-label="Competências"><div>{[...stack, ...stack].map((item, i) => <span key={`${item}-${i}`}>{item}<i>✦</i></span>)}</div></div>
-
-      <section className="about section" id="sobre">
-        <div className="section-number">02 / SOBRE</div>
-        <div className="about-heading"><p className="kicker">Perfil híbrido</p><h2>Não fico preso<br />em uma <em>caixinha</em></h2></div>
-        <div className="about-body">
-          <p className="lead">Minha base nasceu no suporte e na infraestrutura. Foi ali que aprendi que tecnologia boa não é a mais complicada, mas a que resolve.</p>
-          <p>Hoje combino essa experiência com formação em desenvolvimento Full Stack, arquitetura cloud, governança e análise de dados. Entendo o usuário, a operação e o código: três pontos de vista que me ajudam a criar soluções completas.</p>
-          <p>Como profissional PCD, valorizo ambientes em que diversidade, colaboração e capacidade falem mais alto. Busco desafios onde eu possa transformar processos, dados e ideias em resultado.</p>
-          <div className="principles">
-            <div><b>01</b><span>Resolver antes<br />de complicar</span></div>
-            <div><b>02</b><span>Aprender sempre,<br />entregar melhor</span></div>
-            <div><b>03</b><span>Tecnologia com<br />propósito humano</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="expertise section">
-        <div className="section-number">03 / EXPERTISE</div>
-        <div className="expertise-grid">
-          {[
-            ["DEV", "Full Stack", "Interfaces responsivas, integrações e aplicações orientadas à experiência real do usuário.", "JavaScript · React · Python · SQL"],
-            ["CLOUD", "Arquitetura", "Visão de infraestrutura e cloud para soluções escaláveis, disponíveis e bem estruturadas.", "Cloud Computing · Redes · Infra"],
-            ["DATA", "Dados & BI", "Transformo bases e rotinas em dashboards, indicadores e narrativas para tomada de decisão.", "Power BI · Excel · Python · SQL"],
-            ["OPS", "Gestão", "Organização de processos, fornecedores, contratos e fluxos com olhar analítico e operacional.", "Governança · Processos · Negócio"],
-          ].map(([code, title, text, tools], i) => (
-            <article className="expertise-card" key={code}><span className="card-index">0{i + 1}</span><span className="card-code-label">{code}</span><h3>{title}</h3><p>{text}</p><small>{tools}</small><i className="card-arrow">↗</i></article>
-          ))}
-        </div>
-      </section>
-
-      <section className="experience section" id="experiencia">
-        <div className="experience-head"><div><div className="section-number">04 / TRAJETÓRIA</div><h2>Experiência que<br /><em>conecta pontos</em></h2></div><p>Uma carreira construída entre tecnologia, atendimento e operação, sempre com a mesma missão: entender o problema e entregar a solução.</p></div>
-        <div className="timeline">
-          {experiences.map((item, i) => <article key={item.role} className="timeline-item"><div className="timeline-marker">{String(i + 1).padStart(2, "0")}</div><div className="timeline-date">{item.period}</div><div className="timeline-content"><h3>{item.role}</h3><h4>{item.company}</h4><p>{item.text}</p><div className="tags">{item.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div></article>)}
-        </div>
-      </section>
-
-      <section className="education section" id="formacao">
-        <div className="section-number">05 / FORMAÇÃO</div>
-        <div className="education-layout"><div className="education-title"><p className="kicker">Conhecimento em movimento</p><h2>Estudo para<br /><em>ir além</em></h2><p>Formação contínua para conectar execução técnica, arquitetura e estratégia.</p></div><div className="education-list">{education.map(([type, course, institution], i) => <article key={course}><span>{String(i + 1).padStart(2, "0")}</span><div><small>{type}</small><h3>{course}</h3><p>{institution}</p></div><i>↗</i></article>)}</div></div>
-      </section>
-
-      <section className="contact section" id="contato">
-        <div className="contact-orb" aria-hidden="true" />
-        <p className="kicker">Tem um desafio interessante?</p>
-        <h2>Vamos criar algo<br /><em>que marque</em></h2>
-        <p className="contact-copy">Estou aberto a oportunidades em tecnologia, desenvolvimento, dados e projetos que valorizem iniciativa e visão de negócio.</p>
-        <div className="contact-links">
-          <a href={WHATSAPP} target="_blank" rel="noreferrer"><span>WhatsApp</span><small>Resposta direta</small><i>↗</i></a>
-          <a href={EMAIL}><span>E-mail</span><small>filipi95527646@gmail.com</small><i>↗</i></a>
-          <a href={LINKEDIN} target="_blank" rel="noreferrer"><span>LinkedIn</span><small>Vamos conectar</small><i>↗</i></a>
-        </div>
-      </section>
-
-      <footer><a className="brand" href="#inicio"><span>F</span>Filipe França</a><p>Filipe França de Oliveira · Brasília, DF</p><p>Desenvolvido com intenção, não com template.</p></footer>
-    </main>
-  );
+export default function Home(){
+ const[menuOpen,setMenuOpen]=useState(false);const[progress,setProgress]=useState(0);const[cursor,setCursor]=useState({x:-100,y:-100});
+ useEffect(()=>{const root=document.documentElement;const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;const onScroll=()=>{const max=root.scrollHeight-innerHeight;setProgress(max?scrollY/max:0);if(!reduced)root.style.setProperty("--scroll",String(scrollY))};const onMove=(e:MouseEvent)=>setCursor({x:e.clientX,y:e.clientY});const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-visible");observer.unobserve(e.target)}}),{threshold:.14,rootMargin:"0px 0px -8%"});document.querySelectorAll("[data-reveal]").forEach(el=>observer.observe(el));addEventListener("scroll",onScroll,{passive:true});addEventListener("mousemove",onMove,{passive:true});onScroll();return()=>{observer.disconnect();removeEventListener("scroll",onScroll);removeEventListener("mousemove",onMove)}},[]);
+ return <main>
+  <div className="progress" style={{transform:`scaleX(${progress})`}}/><div className="cursor-glow" style={{transform:`translate3d(${cursor.x}px,${cursor.y}px,0)`}} aria-hidden/>
+  <header className="nav"><a className="brand" href="#inicio"><b>FF</b><span>Filipe França</span></a><button className="menu" onClick={()=>setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>{menuOpen?"FECHAR":"MENU"}</button><nav className={menuOpen?"open":""}>{[["Sobre","sobre"],["Projetos","projetos"],["Trajetória","trajetoria"],["Formação","formacao"]].map(([l,id])=><a key={id} href={`#${id}`} onClick={()=>setMenuOpen(false)}>{l}</a>)}</nav><a className="nav-cta" href={WHATSAPP} target="_blank" rel="noreferrer">VAMOS CONVERSAR <span>↗</span></a></header>
+  <section className="hero" id="inicio"><div className="hero-grid" aria-hidden/><p className="availability"><i/> BRASÍLIA · DISPONÍVEL PARA NOVOS DESAFIOS</p><h1><span>TECNOLOGIA</span><span className="outline">COM VISÃO</span><span className="accent">DE NEGÓCIO.</span></h1><div className="hero-bottom"><p>Desenvolvimento, cloud e dados conectados à operação real. Eu transformo problemas complexos em soluções claras, úteis e humanas.</p><a href="#projetos" className="round-link"><span>EXPLORAR</span><b>↓</b></a></div><div className="portrait-wrap"><div className="portrait-back"/><Image src="/filipe-franca.jpg" alt="Filipe França de Oliveira" width={520} height={650} priority/><span>FULL STACK · CLOUD · DATA</span></div><div className="hero-counter"><strong>7+</strong><span>ANOS ENTRE<br/>TECNOLOGIA E OPERAÇÃO</span></div></section>
+  <div className="ticker"><div>{[...Array(2)].flatMap((_,i)=>["ANÁLISE DE DADOS","POWER BI","CLOUD","FULL STACK","INFRAESTRUTURA"].map(x=><span key={i+x}>{x}<i>✦</i></span>))}</div></div>
+  <section className="manifest section" id="sobre"><div className="section-label">01 — SOBRE</div><div className="manifest-copy" data-reveal><p className="kicker">PERFIL HÍBRIDO. ENTRE CÓDIGO, DADOS E PESSOAS.</p><h2>Não quero ser só mais um profissional de tecnologia.</h2><p className="manifest-lead">Quero entender o problema inteiro — e construir a solução que realmente muda o jogo.</p></div><div className="manifest-details" data-reveal><p>Minha carreira começou no suporte e na infraestrutura. Foi resolvendo problemas reais, com pessoas reais, que aprendi uma regra simples: tecnologia só é boa quando funciona para quem precisa dela.</p><p>Hoje junto essa base a desenvolvimento Full Stack, arquitetura cloud, governança e análise de dados. Essa visão completa me permite sair do pedido inicial, entender a necessidade por trás dele e entregar algo melhor.</p><div className="metrics"><div><b>01</b><span>VISÃO<br/>SISTÊMICA</span></div><div><b>02</b><span>EXECUÇÃO<br/>PRÁTICA</span></div><div><b>03</b><span>IMPACTO<br/>MENSURÁVEL</span></div></div></div></section>
+  <section className="projects" id="projetos"><div className="projects-intro section"><div className="section-label">02 — PROJETOS</div><h2 data-reveal>Trabalho que<br/><em>prova o discurso.</em></h2><p data-reveal>Projetos construídos para organizar informações, reduzir esforço manual e transformar dados em decisões.</p></div><div className="project-stack">{projects.map((p,i)=><article className={`project-card ${p.color}`} key={p.n} style={{top:`${92+i*18}px`}}><div className="project-meta"><span>{p.n}</span><span>{p.kind}</span></div><div className="project-content"><h3>{p.title}</h3><p>{p.text}</p><div>{p.tags.map(t=><small key={t}>{t}</small>)}</div></div><div className="project-visual"><span>{p.n}</span><div className="data-lines">{[88,62,76,48,94].map((h,j)=><i key={j} style={{height:`${h}%`}}/>)}</div></div></article>)}</div></section>
+  <section className="capabilities section"><div className="section-label">03 — COMO EU ENTREGO</div><div className="cap-head" data-reveal><p>QUATRO PERSPECTIVAS.<br/>UMA SOLUÇÃO COMPLETA.</p><h2>Do problema<br/>ao <em>resultado.</em></h2></div><div className="cap-list">{[["01","DATA","Bases confiáveis, indicadores relevantes e dashboards que contam uma história."],["02","DEV","Interfaces responsivas e aplicações pensadas para pessoas, não só para telas."],["03","CLOUD","Infraestrutura e arquitetura com visão de disponibilidade, escala e segurança."],["04","OPS","Processos, fornecedores e fluxos organizados com foco no que gera valor."]].map(x=><article data-reveal key={x[0]}><span>{x[0]}</span><h3>{x[1]}</h3><p>{x[2]}</p><i>↗</i></article>)}</div></section>
+  <section className="journey section" id="trajetoria"><div className="section-label">04 — TRAJETÓRIA</div><div className="journey-title" data-reveal><h2>Experiência que<br/><em>conecta pontos.</em></h2><p>Uma carreira construída entre tecnologia, atendimento e operação — sempre entendendo antes de executar.</p></div><div className="timeline">{experiences.map((e,i)=><article data-reveal key={e[1]}><span>0{i+1}</span><time>{e[0]}</time><div><h3>{e[1]}</h3><h4>{e[2]}</h4></div><p>{e[3]}</p></article>)}</div></section>
+  <section className="education section" id="formacao"><div className="section-label">05 — FORMAÇÃO</div><div className="education-grid"><div data-reveal><p className="kicker">CONHECIMENTO EM MOVIMENTO</p><h2>Aprender.<br/>Aplicar.<br/><em>Evoluir.</em></h2></div><div className="degree-list">{education.map((e,i)=><article data-reveal key={e[1]}><span>0{i+1}</span><div><small>{e[0]}</small><h3>{e[1]}</h3><p>{e[2]}</p></div><i>↗</i></article>)}</div></div></section>
+  <section className="contact section" id="contato"><div className="contact-rings"><i/><i/><i/></div><p className="kicker">TEM UM DESAFIO INTERESSANTE?</p><h2 data-reveal>Vamos construir<br/><em>algo relevante.</em></h2><div className="contact-actions" data-reveal><a href={WHATSAPP} target="_blank" rel="noreferrer">WHATSAPP <span>↗</span></a><a href={LINKEDIN} target="_blank" rel="noreferrer">LINKEDIN <span>↗</span></a><a href={GITHUB} target="_blank" rel="noreferrer">GITHUB <span>↗</span></a><a href={EMAIL}>E-MAIL <span>↗</span></a></div></section>
+  <footer><a className="brand" href="#inicio"><b>FF</b><span>Filipe França</span></a><p>BRASÍLIA · DF<br/>© 2026</p><p>DESENVOLVIDO COM<br/>INTENÇÃO E CÓDIGO.</p></footer>
+ </main>
 }
