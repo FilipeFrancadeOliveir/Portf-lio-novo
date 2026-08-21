@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./upgrade.css";
 
 export const metadata: Metadata = {
   title: "Filipe França | Tecnologia, Cloud & Dados",
